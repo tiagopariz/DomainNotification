@@ -44,6 +44,8 @@
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\ValueObjectBase.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
