@@ -34,6 +34,7 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Interfaces\Notifications\INotification.cs" />
     <Compile Include="Notifications\Message.cs" />
     <Compile Include="Notifications\NotificationBase.cs" />
     <Compile Include="Notifications\NotificationSeverity.cs" />
