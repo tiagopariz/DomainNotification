@@ -33,9 +33,11 @@ namespace DomainNotification.Domain.Entities
             return !Notification.HasErrors;
         }
 
-        // ERRORS
+        #region Errors
 
         public static Error InvalidId = new Error("Invalid Id");
         public static Error InvalidName = new Error("Invalid Name");
+
+        #endregion
     }
 }

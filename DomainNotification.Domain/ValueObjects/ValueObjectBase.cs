@@ -30,8 +30,10 @@ namespace DomainNotification.Domain.ValueObjects
             return !Notification.HasErrors;
         }
 
-        // ERRORS
+        #region Errors
 
         public static Error InvalidEmail = new Error("Invalid E-mail address");
+
+        #endregion
     }
 }
