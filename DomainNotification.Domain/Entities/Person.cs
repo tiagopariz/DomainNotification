@@ -30,6 +30,10 @@ namespace DomainNotification.Domain.Entities
         public string Name { get; }
         public Email Email { get; }
 
+        #region Errors
+
         public static Error InvalidPersonEmail = new Error("Invalid E-mail, see object notifications for more details.");
+
+        #endregion
     }
 }
