@@ -8,9 +8,9 @@
         {
             _message = message;
 
-            for (var i = 0; i < args.Length - 1; i++)
+            for (var i = 0; i < args.Length; i++)
             {
-                _message = _message.Replace($"{i}", args[i]);
+                _message = _message.Replace("{" + i + "}", args[i]);
             }
         }
 
