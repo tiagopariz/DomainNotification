@@ -5,9 +5,9 @@ namespace DomainNotification.Domain.Interfaces.Notifications
 {
     public interface INotification
     {
-        IList Errors { get; set; }
-        IList Warnings { get; set; }
-        IList Messages { get; set; }
+        IList Errors { get; }
+        IList Warnings { get; }
+        IList Messages { get; }
         bool HasErrors { get; }
         bool HasWarnings { get; }
         bool HasMessages { get; }

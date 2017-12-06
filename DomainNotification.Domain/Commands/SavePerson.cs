@@ -17,10 +17,15 @@ namespace DomainNotification.Domain.Commands
         public void Run()
         {
             if (!Notification.HasErrors)
+            {
                 SavePersonInBackendSystems();
-
-            var error = new Error("Registration not saved.");
-            _person.Notification.Errors.Add(error);
+            }
+            else
+            {
+                var error = new Error("Registration not saved.");
+                _person.Notification.Errors.Add(error);
+            }
+            
         }
 
         private void SavePersonInBackendSystems()
