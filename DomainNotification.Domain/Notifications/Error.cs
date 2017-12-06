@@ -3,7 +3,6 @@
     public class Error
     {
         private readonly string _message;
-        public NotificationSeverity NotificationSeverity { get; } = NotificationSeverity.Error;
 
         public Error(string message, params string[] args)
         {
@@ -14,6 +13,8 @@
                 _message = _message.Replace($"{i}", args[i]);
             }
         }
+
+        public NotificationSeverity NotificationSeverity { get; } = NotificationSeverity.Error;
 
         public override string ToString()
         {
