@@ -9,12 +9,6 @@ namespace DomainNotification.Domain.ValueObjects
 
         public virtual void Validate() { }
 
-        protected void IsInvalidEmail(string s, ErrorDescription error)
-        {
-            const string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
-            Fail(!Regex.IsMatch(s, pattern), error);
-        }
-
         protected void Fail(bool condition, ErrorDescription error)
         {
             if (condition)
@@ -25,6 +19,16 @@ namespace DomainNotification.Domain.ValueObjects
         {
             return !Notification.HasErrors;
         }
+
+        #region Validations
+
+        protected void IsInvalidEmail(string s, ErrorDescription error)
+        {
+            const string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
+            Fail(!Regex.IsMatch(s, pattern), error);
+        }
+
+        #endregion
 
         #region Errors
 

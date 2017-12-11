@@ -9,16 +9,6 @@ namespace DomainNotification.Domain.Entities
 
         public virtual void Validate() { }
 
-        protected void IsInvalidGuid(Guid guid, ErrorDescription error)
-        {
-            Fail(guid == Guid.Empty, error);
-        }
-
-        protected void IsInvalidName(string s, ErrorDescription error)
-        {
-            Fail(string.IsNullOrWhiteSpace(s), error);
-        }
-
         protected void Fail(bool condition, ErrorDescription description)
         {
             if (condition)
@@ -29,6 +19,20 @@ namespace DomainNotification.Domain.Entities
         {
             return !Errors.HasErrors;
         }
+
+        #region Validations
+
+        protected void IsInvalidGuid(Guid guid, ErrorDescription error)
+        {
+            Fail(guid == Guid.Empty, error);
+        }
+
+        protected void IsInvalidName(string s, ErrorDescription error)
+        {
+            Fail(string.IsNullOrWhiteSpace(s), error);
+        }
+
+        #endregion
 
         #region Errors
 
