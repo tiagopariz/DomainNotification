@@ -1,8 +1,6 @@
-﻿using DomainNotification.Domain.Entities;
-
-namespace DomainNotification.Domain.ValueObjects
+﻿namespace DomainNotification.Domain.ValueObjects
 {
-    public class Email : ValueObjectBase
+    public class Email : ValueObject
     {
         public Email(string address)
         {
@@ -12,7 +10,7 @@ namespace DomainNotification.Domain.ValueObjects
 
         public sealed override void Validate()
         {
-            IsInvalidEmail(Address, Entity.InvalidName);
+            IsInvalidEmail(Address, InvalidEmail);
         }
 
         public string Address { get; }

@@ -3,7 +3,7 @@ using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.ValueObjects
 {
-    public class ValueObjectBase
+    public class ValueObject
     {
         public Error Notification { get; } = new Error();
 
