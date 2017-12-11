@@ -6,7 +6,7 @@ namespace DomainNotification.Domain.Notifications
 {
     public abstract class Notification : INotification
     {
-        public IList<object> List { get; set; } = new List<object>();
+        public IList<object> List { get; } = new List<object>();
         public bool HasNotifications => List.Any();
 
         public bool Includes(Description error)
