@@ -5,7 +5,7 @@ using DomainNotification.Domain.ValueObjects;
 
 namespace DomainNotification.Application.Services
 {
-    public class PersonService : ServiceBase
+    public class PersonService : Service
     {
         private readonly Person _entity;
 

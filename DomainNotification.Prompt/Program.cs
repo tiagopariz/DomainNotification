@@ -29,7 +29,7 @@ namespace DomainNotification.Prompt
                 ShowNotifications(personService);
         }
 
-        private static void ShowNotifications(ServiceBase personService)
+        private static void ShowNotifications(Service personService)
         {
             if (!personService.HasNotifications) return;
 

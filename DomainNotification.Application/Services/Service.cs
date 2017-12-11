@@ -3,7 +3,7 @@ using DomainNotification.Domain.Entities;
 
 namespace DomainNotification.Application.Services
 {
-    public abstract class ServiceBase
+    public abstract class Service
     {
         protected Entity NotificationEntity;
 
