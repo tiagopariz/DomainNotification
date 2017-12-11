@@ -1,5 +1,5 @@
 ﻿using DomainNotification.Domain.Entities;
-using DomainNotification.Domain.Notifications;
+using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.Commands
 {
@@ -10,28 +10,27 @@ namespace DomainNotification.Domain.Commands
         public SavePerson(Person person) : base(person)
         {
             _person = person;
-            var warning = new Warning("New person create on memory.");
-            _person.Notification.Warnings.Add(warning);
+            var description = new ErrorDescription("New person create on memory.", Level.Warning);
+            _person.Errors.Add(description);
         }
 
         public void Run()
         {
-            if (!Notification.HasErrors)
+            if (!Errors.HasErrors)
             {
                 SavePersonInBackendSystems();
             }
             else
             {
-                var error = new Error("Registration not saved.");
-                _person.Notification.Errors.Add(error);
+                var error = new ErrorDescription("Registration not saved.", Level.Error);
+                _person.Errors.Add(error);
             }
-            
         }
 
         private void SavePersonInBackendSystems()
         {
-            var message = new Message("Registration succeeded.");
-            _person.Notification.Messages.Add(message);
+            var message = new ErrorDescription("Registration succeeded.", Level.Information);
+            _person.Errors.Add(message);
         }
     }
 }

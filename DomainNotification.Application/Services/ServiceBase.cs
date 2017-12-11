@@ -5,27 +5,26 @@ namespace DomainNotification.Application.Services
 {
     public abstract class ServiceBase
     {
-        protected EntityBase NotificationEntity;
+        protected Entity NotificationEntity;
 
-        public bool HasNotifications()
+        public bool HasNotifications => NotificationEntity != null && NotificationEntity.Errors.HasNotifications;
+        public bool HasErrors => NotificationEntity != null && NotificationEntity.Errors.HasErrors;
+        public bool HasWarnings => NotificationEntity != null && NotificationEntity.Errors.HasWarnings;
+        public bool HasInformations => NotificationEntity != null && NotificationEntity.Errors.HasInformations;
+
+        public IEnumerable Errors()
         {
-            return NotificationEntity != null && NotificationEntity.Notification.HasNotifications;
+            return NotificationEntity?.Errors.Errors;
         }
 
-        public IList Errors()
+        public IEnumerable Warnings()
         {
-            return NotificationEntity?.Notification.Errors;
-
+            return NotificationEntity?.Errors.Warnings;
         }
 
-        public IList Warnings()
+        public IEnumerable Informations()
         {
-            return NotificationEntity?.Notification.Warnings;
-        }
-
-        public IList Messages()
-        {
-            return NotificationEntity?.Notification.Messages;
+            return NotificationEntity?.Errors.Informations;
         }
     }
 }

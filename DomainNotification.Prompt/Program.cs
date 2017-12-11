@@ -25,34 +25,45 @@ namespace DomainNotification.Prompt
             personService.SavePerson(personDto.PersonId,
                                      personDto.Name);
 
-            if (personService.HasNotifications())
+            if (personService.HasNotifications)
                 ShowNotifications(personService);
         }
 
-        private static void ShowNotifications(PersonService personService)
+        private static void ShowNotifications(ServiceBase personService)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nErrors\n");
+            if (!personService.HasNotifications) return;
 
-            foreach (var error in personService.Errors())
+            if (personService.HasErrors)
             {
-                Console.WriteLine(error.ToString());
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\nErrors\n");
+
+                foreach (var error in personService.Errors())
+                {
+                    Console.WriteLine(error.ToString());
+                }
             }
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\nWarnings\n");
-
-            foreach (var error in personService.Warnings())
+            if (personService.HasWarnings)
             {
-                Console.WriteLine(error.ToString());
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("\nWarnings\n");
+
+                foreach (var error in personService.Warnings())
+                {
+                    Console.WriteLine(error.ToString());
+                }
             }
 
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine("\nMessages\n");
-
-            foreach (var error in personService.Messages())
+            if (personService.HasInformations)
             {
-                Console.WriteLine(error.ToString());
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("\nInformations\n");
+
+                foreach (var error in personService.Informations())
+                {
+                    Console.WriteLine(error.ToString());
+                }
             }
         }
     }

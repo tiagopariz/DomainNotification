@@ -1,10 +1,10 @@
 ﻿using System;
-using DomainNotification.Domain.Notifications;
+using DomainNotification.Domain.Errors;
 using DomainNotification.Domain.ValueObjects;
 
 namespace DomainNotification.Domain.Entities
 {
-    public class Person : EntityBase
+    public class Person : Entity
     {
         public Person(Guid personId, string name, Email email)
         {
@@ -21,7 +21,7 @@ namespace DomainNotification.Domain.Entities
             IsInvalidEmail(Email, InvalidPersonEmail);
         }
 
-        protected void IsInvalidEmail(Email s, Error error)
+        protected void IsInvalidEmail(Email s, ErrorDescription error)
         {
             Fail(Email.Notification.HasErrors, error);
         }
@@ -32,7 +32,7 @@ namespace DomainNotification.Domain.Entities
 
         #region Errors
 
-        public static Error InvalidPersonEmail = new Error("Invalid E-mail, see object notifications for more details.");
+        public static ErrorDescription InvalidPersonEmail = new ErrorDescription("Invalid E-mail, see object notifications for more details.", Level.Error);
 
         #endregion
     }

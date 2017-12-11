@@ -1,28 +1,24 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using DomainNotification.Domain.Notifications;
+﻿using System.Text.RegularExpressions;
+using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.ValueObjects
 {
     public class ValueObjectBase
     {
-        public Notification Notification { get; } = new Notification();
+        public Error Notification { get; } = new Error();
 
-        public virtual void Validate()
-        {
+        public virtual void Validate() { }
 
-        }
-
-        protected void IsInvalidEmail(string s, Error error)
+        protected void IsInvalidEmail(string s, ErrorDescription error)
         {
             const string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
             Fail(!Regex.IsMatch(s, pattern), error);
         }
 
-        protected void Fail(bool condition, Error error)
+        protected void Fail(bool condition, ErrorDescription error)
         {
             if (condition)
-                Notification.Errors.Add(error);
+                Notification.Add(error);
         }
 
         public bool IsValid()
@@ -32,7 +28,7 @@ namespace DomainNotification.Domain.ValueObjects
 
         #region Errors
 
-        public static Error InvalidEmail = new Error("Invalid E-mail address");
+        public static ErrorDescription InvalidEmail = new ErrorDescription("Invalid E-mail address", Level.Error);
 
         #endregion
     }

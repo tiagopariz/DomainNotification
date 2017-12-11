@@ -12,7 +12,7 @@ namespace DomainNotification.Domain.ValueObjects
 
         public sealed override void Validate()
         {
-            IsInvalidEmail(Address, EntityBase.InvalidName);
+            IsInvalidEmail(Address, Entity.InvalidName);
         }
 
         public string Address { get; }

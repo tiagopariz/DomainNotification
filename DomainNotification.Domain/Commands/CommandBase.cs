@@ -1,16 +1,16 @@
 ﻿using DomainNotification.Domain.Entities;
-using DomainNotification.Domain.Notifications;
+using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.Commands
 {
     public class CommandBase
     {
-        public CommandBase(EntityBase entityBase)
+        public CommandBase(Entity entity)
         {
-            EntityBase = entityBase;
+            Entity = entity;
         }
 
-        protected EntityBase EntityBase;
-        protected Notification Notification => EntityBase.Notification;
+        protected Entity Entity;
+        protected Error Errors => Entity.Errors;
     }
 }
