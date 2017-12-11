@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\SavePerson.cs" />
-    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\Command.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Interfaces\Notifications\IDescription.cs" />

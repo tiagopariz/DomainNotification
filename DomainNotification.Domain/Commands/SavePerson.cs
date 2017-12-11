@@ -3,7 +3,7 @@ using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.Commands
 {
-    public class SavePerson : CommandBase
+    public class SavePerson : Command
     {
         private readonly Person _person;
 

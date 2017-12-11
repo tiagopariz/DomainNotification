@@ -3,9 +3,9 @@ using DomainNotification.Domain.Errors;
 
 namespace DomainNotification.Domain.Commands
 {
-    public class CommandBase
+    public abstract class Command
     {
-        public CommandBase(Entity entity)
+        protected Command(Entity entity)
         {
             Entity = entity;
         }
