@@ -1,12 +1,13 @@
-﻿using DomainNotification.Domain.Notifications;
+﻿using DomainNotification.Domain.Interfaces.Errors;
+using DomainNotification.Domain.Notifications;
 
 namespace DomainNotification.Domain.Errors
 {
     public class ErrorDescription : Description
     {
-        public Level Level { get; }
+        public ILevel Level { get; }
 
-        public ErrorDescription(string message, Level level, params string[] args)
+        public ErrorDescription(string message, ILevel level, params string[] args)
             : base(message, args)
         {
             Level = level;

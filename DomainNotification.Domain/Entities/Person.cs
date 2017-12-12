@@ -32,7 +32,7 @@ namespace DomainNotification.Domain.Entities
 
         #region Errors
 
-        public static ErrorDescription InvalidPersonEmail = new ErrorDescription("Invalid E-mail, see object notifications for more details.", Level.Error);
+        public static ErrorDescription InvalidPersonEmail = new ErrorDescription("Invalid E-mail, see object notifications for more details.", new Critical());
 
         #endregion
     }

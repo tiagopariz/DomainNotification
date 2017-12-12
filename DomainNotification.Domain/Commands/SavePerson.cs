@@ -10,7 +10,7 @@ namespace DomainNotification.Domain.Commands
         public SavePerson(Person person) : base(person)
         {
             _person = person;
-            var description = new ErrorDescription("New person create on memory.", Level.Warning);
+            var description = new ErrorDescription("New person create on memory.", new Warning());
             _person.Errors.Add(description);
         }
 
@@ -22,14 +22,14 @@ namespace DomainNotification.Domain.Commands
             }
             else
             {
-                var error = new ErrorDescription("Registration not saved.", Level.Error);
+                var error = new ErrorDescription("Registration not saved.", new Critical());
                 _person.Errors.Add(error);
             }
         }
 
         private void SavePersonInBackendSystems()
         {
-            var message = new ErrorDescription("Registration succeeded.", Level.Information);
+            var message = new ErrorDescription("Registration succeeded.", new Information());
             _person.Errors.Add(message);
         }
     }

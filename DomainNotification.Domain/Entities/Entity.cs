@@ -36,8 +36,8 @@ namespace DomainNotification.Domain.Entities
 
         #region Errors
 
-        public static ErrorDescription InvalidId = new ErrorDescription("Invalid Id", Level.Error);
-        public static ErrorDescription InvalidName = new ErrorDescription("Invalid Name", Level.Error);
+        public static ErrorDescription InvalidId = new ErrorDescription("Invalid Id", new Critical());
+        public static ErrorDescription InvalidName = new ErrorDescription("Invalid Name", new Critical());
 
         #endregion
     }

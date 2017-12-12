@@ -32,7 +32,7 @@ namespace DomainNotification.Domain.ValueObjects
 
         #region Errors
 
-        public static ErrorDescription InvalidEmail = new ErrorDescription("Invalid E-mail address", Level.Error);
+        public static ErrorDescription InvalidEmail = new ErrorDescription("Invalid E-mail address", new Critical());
 
         #endregion
     }
