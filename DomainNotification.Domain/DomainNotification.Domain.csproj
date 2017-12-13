@@ -34,12 +34,15 @@
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Errors\Information.cs" />
+    <Compile Include="Errors\Warning.cs" />
+    <Compile Include="Interfaces\Errors\ILevel.cs" />
     <Compile Include="Interfaces\Notifications\IDescription.cs" />
     <Compile Include="Interfaces\Notifications\INotification.cs" />
     <Compile Include="Errors\ErrorDescription.cs" />
     <Compile Include="Notifications\Description.cs" />
     <Compile Include="Notifications\Notification.cs" />
-    <Compile Include="Errors\Level.cs" />
+    <Compile Include="Errors\Critical.cs" />
     <Compile Include="Errors\Error.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObjects\Email.cs" />
